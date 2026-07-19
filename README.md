@@ -2,31 +2,52 @@
 
 A Smart Queue Management System that helps users book and manage queues online.
 
-## Features
+## 🚀 Features
 
 - User Login & Registration
-- Hospital Queue
-- Bank Queue
-- Salon Queue
-- Canteen Queue
+- Hospital Queue Management
+- Bank Queue Management
+- Salon Queue Management
+- Canteen Queue Management
 - Admin Dashboard
 
-## Tech Stack
+## 🛠️ Tech Stack
 
+### Frontend
 - HTML
 - CSS
 - JavaScript
+
+### Backend
 - Node.js
 - Express.js
+
+### Database
 - MongoDB
 
-## How to Run
+## 📂 Project Structure
 
-1. Install dependencies:
-   npm install
+```
+QueueLess/
+├── backend/
+├── frontend/
+├── screenshots/
+└── README.md
+```
 
-2. Start the server:
-   node server.js
+## ▶️ How to Run
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Start the backend server
+
+```bash
+node server.js
+```
 
 3. Open the frontend in your browser.
 
@@ -52,3 +73,7 @@ A Smart Queue Management System that helps users book and manage queues online.
 
 ### 🛠️ Services Page
 ![Services](screenshots/services.png)
+
+## 👩‍💻 Author
+
+**Pragati Thorve**
