@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Salon Queue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <h2>💇‍♀️ Salon Queue</h2>
+    <button onclick="logout()">Logout 🚪</button>
+  </div>
+
+  <!-- Live Time -->
+  <h3 id="clock"></h3>
+
+  <!-- Input -->
+  <input type="text" id="name" placeholder="Enter Name">
+  <input type="time" id="time">
+
+  <!-- Buttons -->
+  <div class="btn-group">
+    <button onclick="getToken()">🎫 Token</button>
+    <button onclick="vip()">⭐ VIP</button>
+    <button onclick="nextToken()">▶ Next</button>
+    <button onclick="resetQueue()">🔄 Reset</button>
+  </div>
+
+  <div class="btn-group">
+    <button onclick="waiting()">⏱ Waiting</button>
+    <button onclick="searchToken()">🔍 Search</button>
+  </div>
+
+  <!-- Status -->
+  <h3 id="current">Now Serving: None</h3>
+  <h3 id="total">Total Waiting: 0</h3>
+
+  <!-- Queue -->
+  <h3>Queue List</h3>
+  <ul id="list"></ul>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+// 🔐 login check
+if(!localStorage.getItem("user")){
+  location="auth.html";
+}
+
+// ⏰ Live clock
+setInterval(()=>{
+  document.getElementById("clock").innerText =
+    new Date().toLocaleTimeString();
+},1000);
+
+// ⏱ Waiting time
+function waiting(){
+  let total = document.getElementById("list").children.length;
+  alert("Approx waiting: " + (total * 2) + " mins");
+}
+
+// 🔍 Search
+function searchToken(){
+  let name = prompt("Enter name to search");
+  let items = document.querySelectorAll("#list li");
+
+  let found = false;
+
+  items.forEach(li=>{
+    if(li.innerText.includes(name)){
+      li.style.background="yellow";
+      found = true;
+    }
+  });
+
+  if(!found) alert("Not found");
+}
+</script>
+
+</body>
+</html>

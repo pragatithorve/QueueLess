@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="wrapper">  
+
+<div class="card">
+
+  <h2>Login / Register</h2>
+
+  <input id="username" placeholder="Username">
+  <input id="password" type="password" placeholder="Password">
+
+  <button onclick="register()">Register</button>
+  <button onclick="login()">Login</button>
+
+</div>
+</div>
+
+<script>
+const API="http://localhost:5000/api/auth";
+
+async function register(){
+ let res = await fetch(API+"/register",{
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify({
+    username:username.value,
+    password:password.value
+  })
+ });
+
+ let data = await res.json();
+
+ if(res.ok){
+   alert("Registered Successfully");
+ }else{
+   alert(data.msg); // 👈 important
+ }
+}
+
+async function login(){
+ let res=await fetch(API+"/login",{
+  method:"POST",
+  headers:{"Content-Type":"application/json"},
+  body:JSON.stringify({
+    username:username.value,
+    password:password.value
+  })
+ });
+
+ if(res.ok){
+  localStorage.setItem("user",username.value);
+  location="services.html";
+ }else{
+  alert("Invalid");
+ }
+}
+</script>
+
+</body>
+</html>

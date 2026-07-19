@@ -1,0 +1,101 @@
+body{
+  margin:0;
+  font-family: 'Segoe UI';
+  background: linear-gradient(135deg,#667eea,#764ba2);
+  color:white;
+}
+
+/* Center */
+.center-box{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Card */
+.card{
+  background:white;
+  color:black;
+  width:300px;
+  padding:20px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0,2);
+}
+
+.card h2{
+  margin-bottom:15px;
+  color:#333;
+}
+
+.card input{
+  width:90%;
+  padding:10px;
+  margin:10px 0;
+  border-radius:8px;
+  border:1px solid #ccc;
+  outline:none;
+}
+
+.wrapper{
+  display:flex;
+  justify-content:center;   /* 👈 horizontal center */
+  align-items:center;       /* 👈 vertical center */
+  height:100vh;
+}
+
+/* Inputs */
+.input-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.input-box input{
+  width:80%;   /* 👈 width कमी केली */
+  max-width:300px; /* 👈 control */
+  padding:10px;
+  margin:8px 0;
+  border-radius:8px;
+  border:none;
+}
+
+/* Buttons */
+button{
+  padding:10px 15px;
+  margin:5px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#667eea;
+  color:white;
+}
+
+/* Services */
+.container{
+  text-align:center;
+  margin-top:100px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,150px);
+  gap:20px;
+  justify-content:center;
+  margin:20px;
+}
+
+.box{
+  background:white;
+  color:black;
+  padding:20px;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.box:hover{
+  transform:scale(1.1);
+}

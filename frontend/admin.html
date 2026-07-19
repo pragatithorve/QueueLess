@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<h2>👑 Admin Panel</h2>
+
+<button onclick="loadQueue()">View Queue</button>
+<button onclick="resetQueue()">Reset</button>
+<button onclick="stats()">View Stats</button>
+
+
+<ul id="list"></ul>
+</div>
+
+<script>
+const API = "http://localhost:5000/api";
+
+if(localStorage.getItem("role") !== "admin"){
+  alert("Access Denied");
+  location="index.html";
+}
+
+async function loadQueue(){
+  let res = await fetch(API + "/all");
+  let data = await res.json();
+
+  list.innerHTML="";
+  data.forEach(i=>{
+    let li=document.createElement("li");
+    li.innerText=i.token+" - "+i.name;
+    list.appendChild(li);
+  });
+}
+
+async function resetQueue(){
+  await fetch(API + "/reset",{method:"DELETE"});
+  loadQueue();
+}
+</script>
+
+</body>
+</html>
